@@ -172,7 +172,7 @@ function RestrictedContent({ show }: { show: boolean }) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
               <div className="flex justify-between items-end">
                 <div>
-                  <h3 className="text-2xl font-display text-white mb-1">File: "Whisper"</h3>
+                  <h3 className="text-2xl font-display text-white mb-1">Vidéo N°1</h3>
                   <p className="text-sm text-gray-400">Duration: 12:04 • Status: <span className="text-green-400">Unlocked</span></p>
                 </div>
                 <button className="w-12 h-12 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:bg-primary transition-colors">
