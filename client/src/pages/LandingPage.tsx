@@ -91,13 +91,13 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
           
           <div className="flex items-center justify-center gap-2 mb-6">
             <span className="h-px w-8 bg-primary/50" />
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">فيديوهات حصرية وغير مشفرة</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">المحتوى الأصلي والحصري</span>
             <span className="h-px w-8 bg-primary/50" />
           </div>
 
           <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-            أنت على وشك الدخول إلى أرشيف الفيديوهات المسربة والحصرية. <br /> 
-            <span className="text-white font-semibold italic">يجب أن يكون عمرك 18 عاماً على الأقل للمتابعة.</span>
+            أنت على وشك الدخول إلى المنصة الرسمية للمحتوى الحصري. <br /> 
+            <span className="text-white font-semibold italic">شاهد النسخ الأصلية بجودة عالية ومباشرة.</span>
           </p>
 
           <motion.button
@@ -143,11 +143,11 @@ function RestrictedContent({ show }: { show: boolean }) {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 text-glow-red">
-            أرشيف الفيديوهات المسربة
+            المحتوى الأصلي والحصري
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-            شاهد الفيديوهات التي تم حذفها من المنصات العامة. <br />
-            <span className="text-primary font-medium italic underline decoration-primary/30">وصول كامل لجميع المقاطع الحصرية.</span>
+            شاهد جميع الفيديوهات الأصلية المتوفرة الآن. <br />
+            <span className="text-primary font-medium italic underline decoration-primary/30">وصول مباشر وفوري لأحدث المقاطع الحصرية.</span>
           </p>
         </motion.div>
       </div>
@@ -197,9 +197,9 @@ function RestrictedContent({ show }: { show: boolean }) {
           className="space-y-8 text-center md:text-left"
         >
           <div>
-            <h3 className="text-2xl font-display text-primary mb-2">فيديوهات حصرية 100%</h3>
+            <h3 className="text-2xl font-display text-primary mb-2">النسخ الأصلية 100%</h3>
             <p className="text-gray-400 leading-relaxed">
-              يحتوي هذا القسم على لقطات مسربة وفيديوهات خاصة لم تظهر من قبل. نحن نضمن لك الخصوصية التامة أثناء التصفح والمشاهدة.
+              هنا تجد المصدر الأصلي لجميع الفيديوهات الحصرية. نحن نقدم لك تجربة مشاهدة مباشرة وبأعلى جودة متوفرة مع ضمان السرية التامة.
             </p>
           </div>
 
