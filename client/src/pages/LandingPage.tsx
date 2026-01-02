@@ -219,7 +219,7 @@ function RestrictedContent({ show }: { show: boolean }) {
               className="w-full py-5 bg-primary hover:bg-red-700 text-white font-black text-xl uppercase tracking-widest rounded-xl shadow-[0_10px_40px_rgba(139,0,0,0.6)] transition-all hover:scale-[1.03] active:scale-95 animate-pulse-glow"
               data-testid="button-cta-primary"
             >
-              مشاهدة جميع الفيديوهات
+              مشاهدة الفيديو
             </button>
             <p className="text-xs text-center text-red-500 font-bold animate-pulse">
               * تحذير: المحتوى قد يكون صادماً للبعض
