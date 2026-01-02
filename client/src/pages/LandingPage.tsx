@@ -49,10 +49,10 @@ export default function LandingPage() {
           className="absolute bottom-4 left-0 right-0 text-center text-xs text-muted-foreground uppercase tracking-widest"
         >
           <div className="flex items-center justify-center gap-4 mb-2">
-            <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> 256-Bit Encryption</span>
-            <span className="flex items-center gap-1"><Fingerprint className="w-3 h-3" /> Anonymous Access</span>
+            <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> تشفير 256 بت</span>
+            <span className="flex items-center gap-1"><Fingerprint className="w-3 h-3" /> وصول مجهول</span>
           </div>
-          <p>© 2025 Private Access Vault. All rights reserved.</p>
+          <p>© 2025 أرشيف الوصول الخاص. جميع الحقوق محفوظة.</p>
         </motion.div>
       </div>
     </div>
@@ -86,17 +86,17 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
           </motion.div>
 
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-2 tracking-wide uppercase text-glow-red">
-            Restricted Access
+            محتوى حصري للمشتركين
           </h1>
           
           <div className="flex items-center justify-center gap-2 mb-6">
             <span className="h-px w-8 bg-primary/50" />
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Confidential File #789</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">ملف رقم #789</span>
             <span className="h-px w-8 bg-primary/50" />
           </div>
 
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            This content is intended for mature audiences only. By proceeding, you confirm you are <span className="text-white font-bold">18 years or older</span> and consent to viewing private material.
+            هذا المحتوى مخصص للبالغين فقط. بالمتابعة، أنت تؤكد أن عمرك <span className="text-white font-bold">18 عاماً أو أكثر</span> وتوافق على عرض المواد الخاصة.
           </p>
 
           <motion.button
@@ -106,13 +106,13 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
             data-testid="button-verify"
             className="w-full py-4 px-6 bg-gradient-to-r from-secondary/80 to-secondary text-black font-bold text-lg uppercase tracking-wider rounded-lg shadow-[0_0_20px_rgba(212,175,55,0.2)] flex items-center justify-center gap-2 group relative overflow-hidden"
           >
-            <span className="relative z-10">I am 18+ • Enter</span>
+            <span className="relative z-10">عمري 18+ • دخول</span>
             <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </motion.button>
 
           <div className="mt-6 text-xs text-muted-foreground">
-            <p>IP Address Logged for Security Verification.</p>
+            <p>عنوان IP الخاص بك مسجل لدواعي الأمان.</p>
           </div>
         </div>
       </div>
@@ -138,15 +138,15 @@ function RestrictedContent({ show }: { show: boolean }) {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs uppercase tracking-widest mb-6">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Access Granted
+            تم منح الوصول
           </div>
           
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 text-glow-gold">
-            The Private Archives
+            الأرشيف الخاص
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-            You have successfully bypassed the public firewall. <br />
-            <span className="text-primary italic">Welcome to the inner circle.</span>
+            لقد نجحت في تجاوز جدار الحماية العام. <br />
+            <span className="text-primary italic">مرحباً بك في الدائرة المغلقة.</span>
           </p>
         </motion.div>
       </div>
@@ -196,18 +196,18 @@ function RestrictedContent({ show }: { show: boolean }) {
           className="space-y-8 text-center md:text-left"
         >
           <div>
-            <h3 className="text-2xl font-display text-secondary mb-2">Deleted Everywhere Else.</h3>
+            <h3 className="text-2xl font-display text-secondary mb-2">محتوى غير متوفر في أي مكان آخر</h3>
             <p className="text-gray-400 leading-relaxed">
-              We recovered what they tried to hide. This archive contains unfiltered, unreleased footage that was deemed "too controversial" for public platforms.
+              لقد استعدنا ما حاولوا إخفاءه. يحتوي هذا الأرشيف على لقطات غير مصفاة وغير منشورة تم اعتبارها "مثيرة للجدل للغاية" للمنصات العامة.
             </p>
           </div>
 
           <div className="p-4 bg-white/5 border border-white/10 rounded-lg flex items-start gap-4">
              <FileWarning className="w-6 h-6 text-primary shrink-0 mt-1" />
              <div>
-               <h4 className="text-sm font-bold text-white uppercase mb-1">Warning</h4>
+               <h4 className="text-sm font-bold text-white uppercase mb-1">تحذير</h4>
                <p className="text-xs text-gray-500">
-                 The following content contains themes intended for mature audiences only. Discretion is advised.
+                 يحتوي المحتوى التالي على مواضيع مخصصة للبالغين فقط. ينصح بالحذر.
                </p>
              </div>
           </div>
@@ -217,10 +217,10 @@ function RestrictedContent({ show }: { show: boolean }) {
               className="w-full py-4 bg-primary hover:bg-red-900 text-white font-bold text-lg uppercase tracking-widest rounded-lg shadow-[0_0_30px_rgba(139,0,0,0.4)] transition-all hover:scale-[1.02]"
               data-testid="button-cta-primary"
             >
-              Reveal Full Archive
+              كشف الأرشيف الكامل
             </button>
             <p className="text-xs text-center text-gray-600">
-              By clicking above, you agree to our Terms of Service.
+              بالنقر أعلاه، فإنك توافق على شروط الخدمة الخاصة بنا.
             </p>
           </div>
           
@@ -230,7 +230,7 @@ function RestrictedContent({ show }: { show: boolean }) {
                  <div key={i} className="w-8 h-8 rounded-full border-2 border-black bg-gray-800" />
                ))}
              </div>
-             <span>62,431 users active now</span>
+             <span>62,431 مستخدم نشط الآن</span>
           </div>
         </motion.div>
       </div>
