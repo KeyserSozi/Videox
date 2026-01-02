@@ -86,17 +86,18 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
           </motion.div>
 
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-2 tracking-wide uppercase text-glow-red">
-            محتوى حصري للمشتركين
+            تأكيد الدخول للمحتوى الحصري
           </h1>
           
           <div className="flex items-center justify-center gap-2 mb-6">
             <span className="h-px w-8 bg-primary/50" />
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">ملف رقم #789</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">ملف آمن ومعتمد</span>
             <span className="h-px w-8 bg-primary/50" />
           </div>
 
-          <p className="text-muted-foreground mb-8 leading-relaxed">
-            هذا المحتوى مخصص للبالغين فقط. بالمتابعة، أنت تؤكد أن عمرك <span className="text-white font-bold">18 عاماً أو أكثر</span> وتوافق على عرض المواد الخاصة.
+          <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+            هل أنت مستعد لمشاهدة أفضل العروض والمحتويات الحصرية؟ <br /> 
+            <span className="text-white font-semibold">اضغط على الزر أدناه للمتابعة والحصول على وصول كامل وفوري.</span>
           </p>
 
           <motion.button
@@ -104,15 +105,15 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
             whileTap={{ scale: 0.98 }}
             onClick={onVerify}
             data-testid="button-verify"
-            className="w-full py-4 px-6 bg-gradient-to-r from-secondary/80 to-secondary text-black font-bold text-lg uppercase tracking-wider rounded-lg shadow-[0_0_20px_rgba(212,175,55,0.2)] flex items-center justify-center gap-2 group relative overflow-hidden"
+            className="w-full py-5 px-6 bg-gradient-to-r from-secondary to-[#FFD700] text-black font-extrabold text-xl uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2 group relative overflow-hidden"
           >
-            <span className="relative z-10">عمري 18+ • دخول</span>
-            <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative z-10">الحصول على العرض الآن</span>
+            <ChevronRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
           </motion.button>
 
-          <div className="mt-6 text-xs text-muted-foreground">
-            <p>عنوان IP الخاص بك مسجل لدواعي الأمان.</p>
+          <div className="mt-6 flex items-center justify-center gap-4 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-green-500" /> آمن بنسبة 100%</span>
+            <span className="flex items-center gap-1">🔒 حماية البيانات</span>
           </div>
         </div>
       </div>
@@ -142,11 +143,11 @@ function RestrictedContent({ show }: { show: boolean }) {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 text-glow-gold">
-            الأرشيف الخاص
+            اكتشف المحتوى المميز
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-            لقد نجحت في تجاوز جدار الحماية العام. <br />
-            <span className="text-primary italic">مرحباً بك في الدائرة المغلقة.</span>
+            استمتع بوصول غير محدود إلى أفضل العروض المختارة بعناية. <br />
+            <span className="text-secondary font-medium italic">كن جزءاً من النخبة اليوم.</span>
           </p>
         </motion.div>
       </div>
@@ -196,31 +197,32 @@ function RestrictedContent({ show }: { show: boolean }) {
           className="space-y-8 text-center md:text-left"
         >
           <div>
-            <h3 className="text-2xl font-display text-secondary mb-2">محتوى غير متوفر في أي مكان آخر</h3>
+            <h3 className="text-2xl font-display text-secondary mb-2">لماذا تختار منصتنا؟</h3>
             <p className="text-gray-400 leading-relaxed">
-              لقد استعدنا ما حاولوا إخفاءه. يحتوي هذا الأرشيف على لقطات غير مصفاة وغير منشورة تم اعتبارها "مثيرة للجدل للغاية" للمنصات العامة.
+              نحن نقدم لك تجربة فريدة من نوعها مع تحديثات يومية ومحتوى أصلي لن تجده في أي مكان آخر. انضم إلى آلاف المشتركين الذين يستمتعون بخدماتنا الموثوقة.
             </p>
           </div>
 
-          <div className="p-4 bg-white/5 border border-white/10 rounded-lg flex items-start gap-4">
-             <FileWarning className="w-6 h-6 text-primary shrink-0 mt-1" />
-             <div>
-               <h4 className="text-sm font-bold text-white uppercase mb-1">تحذير</h4>
-               <p className="text-xs text-gray-500">
-                 يحتوي المحتوى التالي على مواضيع مخصصة للبالغين فقط. ينصح بالحذر.
-               </p>
+          <div className="grid grid-cols-2 gap-4">
+             <div className="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+                <p className="text-primary font-bold text-xl">24/7</p>
+                <p className="text-[10px] text-gray-500 uppercase">دعم متواصل</p>
+             </div>
+             <div className="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
+                <p className="text-secondary font-bold text-xl">100%</p>
+                <p className="text-[10px] text-gray-500 uppercase">خصوصية تامة</p>
              </div>
           </div>
 
           <div className="flex flex-col gap-4">
             <button 
-              className="w-full py-4 bg-primary hover:bg-red-900 text-white font-bold text-lg uppercase tracking-widest rounded-lg shadow-[0_0_30px_rgba(139,0,0,0.4)] transition-all hover:scale-[1.02]"
+              className="w-full py-5 bg-primary hover:bg-red-700 text-white font-black text-xl uppercase tracking-widest rounded-xl shadow-[0_10px_40px_rgba(139,0,0,0.5)] transition-all hover:scale-[1.03] active:scale-95 animate-pulse-glow"
               data-testid="button-cta-primary"
             >
-              كشف الأرشيف الكامل
+              اشترك الآن مجاناً
             </button>
-            <p className="text-xs text-center text-gray-600">
-              بالنقر أعلاه، فإنك توافق على شروط الخدمة الخاصة بنا.
+            <p className="text-xs text-center text-gray-500 italic">
+              * العرض متاح لفترة محدودة فقط
             </p>
           </div>
           
