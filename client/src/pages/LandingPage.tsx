@@ -221,9 +221,6 @@ function RestrictedContent({ show }: { show: boolean }) {
             >
               مشاهدة الفيديو
             </button>
-            <p className="text-xs text-center text-red-500 font-bold animate-pulse">
-              * تحذير: المحتوى قد يكون صادماً للبعض
-            </p>
           </div>
           
           <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-gray-500">
