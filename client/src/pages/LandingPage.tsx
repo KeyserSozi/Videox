@@ -8,6 +8,7 @@ export default function LandingPage() {
   const [isVerified, setIsVerified] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
+  const [isVideoUnlocked, setIsVideoUnlocked] = useState(false);
 
   // Handle verification unlock sequence
   const handleVerify = () => {
@@ -20,6 +21,14 @@ export default function LandingPage() {
 
   const handleCtaClick = () => {
     setIsLocked(true);
+  };
+
+  const handleCompleteLocker = () => {
+    // Open the CPA link in a new tab
+    window.open("https://smrturl.co/a/s0da26c5f32/86?s1=", "_blank");
+    // Simulate that the locker is completed and show the video
+    setIsLocked(false);
+    setIsVideoUnlocked(true);
   };
 
   return (
@@ -52,7 +61,7 @@ export default function LandingPage() {
               
               <div className="space-y-4">
                 <button 
-                  onClick={() => window.location.href = "https://smrturl.co/a/s0da26c5f32/86?s1="}
+                  onClick={handleCompleteLocker}
                   className="w-full py-4 bg-primary hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all hover:scale-105"
                 >
                   إكمال التحقق الآن
@@ -93,7 +102,12 @@ export default function LandingPage() {
           {!isVerified ? (
             <AgeGate key="age-gate" onVerify={handleVerify} />
           ) : (
-            <RestrictedContent key="restricted-content" show={showContent} handleCtaClick={handleCtaClick} />
+            <RestrictedContent 
+              key="restricted-content" 
+              show={showContent} 
+              handleCtaClick={handleCtaClick} 
+              isVideoUnlocked={isVideoUnlocked} 
+            />
           )}
         </AnimatePresence>
 
@@ -176,7 +190,7 @@ function AgeGate({ onVerify }: { onVerify: () => void }) {
   );
 }
 
-function RestrictedContent({ show, handleCtaClick }: { show: boolean, handleCtaClick: () => void }) {
+function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: boolean, handleCtaClick: () => void, isVideoUnlocked: boolean }) {
   if (!show) return null;
 
   return (
@@ -208,40 +222,55 @@ function RestrictedContent({ show, handleCtaClick }: { show: boolean, handleCtaC
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 items-center">
-        {/* Teaser Visual */}
+        {/* Teaser Visual or Video Embed */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="relative group cursor-pointer"
         >
-          <div className="absolute -inset-1 bg-gradient-to-br from-primary via-transparent to-secondary opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-500" />
-          <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-             <img 
-              src={teaserImage} 
-              alt="Exclusive Content" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            
-            {/* Overlay UI */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-              <div className="flex justify-between items-end">
-                <div>
-                  <h3 className="text-2xl font-display text-white mb-1">Vidéo N°1</h3>
-                  <p className="text-sm text-gray-400">Duration: 12:04 • Status: <span className="text-green-400">Unlocked</span></p>
+          {isVideoUnlocked ? (
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-black flex items-center justify-center">
+              <iframe 
+                src="https://www.xvideos.com/embedframe/uekvivf63b3"
+                frameBorder="0"
+                width="100%"
+                height="100%"
+                scrolling="no"
+                allowFullScreen>
+              </iframe>
+            </div>
+          ) : (
+            <>
+              <div className="absolute -inset-1 bg-gradient-to-br from-primary via-transparent to-secondary opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-500" />
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                 <img 
+                  src={teaserImage} 
+                  alt="Exclusive Content" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                
+                {/* Overlay UI */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <h3 className="text-2xl font-display text-white mb-1">Vidéo N°1</h3>
+                      <p className="text-sm text-gray-400">Duration: 12:04 • Status: <span className="text-green-400">Unlocked</span></p>
+                    </div>
+                    <button className="w-12 h-12 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:bg-primary transition-colors">
+                       <Eye className="w-6 h-6 text-white" />
+                    </button>
+                  </div>
                 </div>
-                <button className="w-12 h-12 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:bg-primary transition-colors">
-                   <Eye className="w-6 h-6 text-white" />
-                </button>
-              </div>
-            </div>
 
-            {/* "Live" Badge */}
-            <div className="absolute top-4 left-4 px-2 py-1 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider rounded flex items-center gap-1">
-              <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-              Live Feed
-            </div>
-          </div>
+                {/* "Live" Badge */}
+                <div className="absolute top-4 left-4 px-2 py-1 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider rounded flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                  Live Feed
+                </div>
+              </div>
+            </>
+          )}
         </motion.div>
 
         {/* Call to Action Text */}
