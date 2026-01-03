@@ -9,6 +9,7 @@ export default function LandingPage() {
   const [showContent, setShowContent] = useState(false);
   const [isLocked, setIsLocked] = useState(false);
   const [isVideoUnlocked, setIsVideoUnlocked] = useState(false);
+  const [showAgeGate, setShowAgeGate] = useState(false);
 
   // Handle verification unlock sequence
   const handleVerify = () => {
@@ -21,6 +22,14 @@ export default function LandingPage() {
 
   const handleCtaClick = () => {
     setIsLocked(true);
+  };
+
+  const handleWatchVideoClick = () => {
+    setShowAgeGate(true);
+    setTimeout(() => {
+      const element = document.getElementById('verification-section');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   const handleCompleteLocker = () => {
@@ -66,10 +75,7 @@ export default function LandingPage() {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139,0,0,0.5)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const element = document.getElementById('verification-section');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={handleWatchVideoClick}
               className="px-10 py-5 bg-primary text-white font-black text-xl uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(139,0,0,0.3)] transition-all flex items-center gap-3 group"
             >
               Watch the Video
@@ -137,22 +143,23 @@ export default function LandingPage() {
         </AnimatePresence>
 
         <AnimatePresence mode="wait">
-          {!isVerified ? (
+          {showAgeGate && !isVerified ? (
             <AgeGate 
               key="age-gate" 
               onVerify={handleVerify} 
               handleCtaClick={handleCtaClick}
               isVerified={isVerified}
             />
-          ) : (
+          ) : isVerified ? (
             <RestrictedContent 
               key="restricted-content" 
               show={showContent} 
               handleCtaClick={handleCtaClick} 
               isVideoUnlocked={isVideoUnlocked} 
             />
-          )}
+          ) : null}
         </AnimatePresence>
+
 
         {/* Footer Trust Elements */}
         <motion.div 
