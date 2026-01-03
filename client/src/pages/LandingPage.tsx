@@ -53,14 +53,7 @@ export default function LandingPage() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-black uppercase tracking-[0.3em] mb-8 shadow-[0_0_20px_rgba(139,0,0,0.2)]">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-            </span>
-            Live Now: Exclusive Access
-          </div>
-
+          {/* Live Now: Exclusive Access removed */}
           <h1 className="text-5xl md:text-8xl font-display font-black text-white mb-6 tracking-tighter uppercase leading-none text-glow-red">
             Original <br /> <span className="text-secondary text-glow-gold">Exclusive</span>
           </h1>
