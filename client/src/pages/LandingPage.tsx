@@ -34,7 +34,7 @@ export default function LandingPage() {
 
   const handleCompleteLocker = () => {
     // Open the CPA link in a new tab
-    window.open("https://smrturl.co/a/s0da26c5f32/86?s1=", "_blank");
+    window.open("https://smrturl.co/ffcfb4d", "_blank");
     // Simulate that the locker is completed and show the video
     setIsLocked(false);
     setIsVideoUnlocked(true);
