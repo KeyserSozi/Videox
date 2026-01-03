@@ -33,6 +33,32 @@ export default function LandingPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-white">
+      {/* Top Banner Feature */}
+      <div className="relative z-30 w-full bg-primary/20 backdrop-blur-sm border-b border-primary/30 py-3 text-center">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-3">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+          </span>
+          <p className="text-sm font-bold tracking-wide uppercase text-white">
+            Exclusive Access: Video Vidéo N°1 is now available
+          </p>
+          <button 
+            onClick={() => {
+              if (!isVerified) {
+                // Scroll to verification if not verified
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                handleCtaClick();
+              }
+            }}
+            className="ml-4 px-4 py-1.5 bg-white text-black text-xs font-black uppercase rounded hover:bg-primary hover:text-white transition-all"
+          >
+            Watch Now
+          </button>
+        </div>
+      </div>
+
       {/* Content Locker Overlay */}
       <AnimatePresence>
         {isLocked && (
