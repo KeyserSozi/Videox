@@ -32,83 +32,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-white">
-      {/* Top Banner Feature */}
-      <div className="relative z-30 w-full bg-primary/20 backdrop-blur-sm border-b border-primary/30 py-3 text-center">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-3">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-          </span>
-          <p className="text-sm font-bold tracking-wide uppercase text-white">
-            Exclusive Access: Video Vidéo N°1 is now available
-          </p>
-          <button 
-            onClick={() => {
-              if (!isVerified) {
-                // Scroll to verification if not verified
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                handleCtaClick();
-              }
-            }}
-            className="ml-4 px-4 py-1.5 bg-white text-black text-xs font-black uppercase rounded hover:bg-primary hover:text-white transition-all"
-          >
-            Watch Now
-          </button>
-        </div>
-      </div>
-
-      {/* Content Locker Overlay */}
-      <AnimatePresence>
-        {isLocked && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl"
-          >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              className="w-full max-w-md glass-panel p-8 rounded-2xl border-primary/50 text-center relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-              
-              <Lock className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
-              
-              <h2 className="text-3xl font-display font-bold text-white mb-4 uppercase tracking-tighter">
-                Content Locked
-              </h2>
-              
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                To watch the full video, you must complete human verification first. This will only take a minute.
-              </p>
-              
-              <div className="space-y-4">
-                <button 
-                  onClick={handleCompleteLocker}
-                  className="w-full py-4 bg-primary hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all hover:scale-105"
-                >
-                  Complete Verification Now
-                </button>
-                
-                <button 
-                  onClick={() => setIsLocked(false)}
-                  className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
-              
-              <div className="mt-8 flex items-center justify-center gap-2 text-[10px] text-gray-600 uppercase tracking-widest">
-                <Shield className="w-3 h-3" /> Protected by Content Locker
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <div className="relative min-h-screen w-full overflow-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-white flex flex-col items-center justify-center">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/60 z-10" />
@@ -121,9 +45,104 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent z-10" />
       </div>
 
-      {/* Main Container */}
-      <div className="relative z-20 container mx-auto px-4 py-8 min-h-screen flex flex-col items-center justify-center">
-        
+      {/* Hero Content - The "Front" of the first page */}
+      <div className="relative z-30 container mx-auto px-4 text-center py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-black uppercase tracking-[0.3em] mb-8 shadow-[0_0_20px_rgba(139,0,0,0.2)]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+            </span>
+            Live Now: Exclusive Access
+          </div>
+
+          <h1 className="text-5xl md:text-8xl font-display font-black text-white mb-6 tracking-tighter uppercase leading-none text-glow-red">
+            Original <br /> <span className="text-secondary text-glow-gold">Exclusive</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-gray-400 mb-10 font-light tracking-wide max-w-2xl mx-auto">
+            Experience the unfiltered source. High quality, private, and direct access to the archive.
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139,0,0,0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const element = document.getElementById('verification-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-10 py-5 bg-primary text-white font-black text-xl uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(139,0,0,0.3)] transition-all flex items-center gap-3 group"
+            >
+              Watch the Video
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+            
+            <div className="flex items-center gap-3 text-sm text-gray-500 font-bold uppercase tracking-widest">
+              <Eye className="w-5 h-5 text-secondary" />
+              62,431 Viewers
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Main Container - Verification and Content Section */}
+      <div id="verification-section" className="relative z-20 container mx-auto px-4 py-20 min-h-screen flex flex-col items-center justify-center">
+        {/* Content Locker Overlay */}
+        <AnimatePresence>
+          {isLocked && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl"
+            >
+              <motion.div 
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                className="w-full max-w-md glass-panel p-8 rounded-2xl border-primary/50 text-center relative overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+                
+                <Lock className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
+                
+                <h2 className="text-3xl font-display font-bold text-white mb-4 uppercase tracking-tighter">
+                  Content Locked
+                </h2>
+                
+                <p className="text-gray-400 mb-8 leading-relaxed">
+                  To watch the full video, you must complete human verification first. This will only take a minute.
+                </p>
+                
+                <div className="space-y-4">
+                  <button 
+                    onClick={handleCompleteLocker}
+                    className="w-full py-4 bg-primary hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all hover:scale-105"
+                  >
+                    Complete Verification Now
+                  </button>
+                  
+                  <button 
+                    onClick={() => setIsLocked(false)}
+                    className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+                
+                <div className="mt-8 flex items-center justify-center gap-2 text-[10px] text-gray-600 uppercase tracking-widest">
+                  <Shield className="w-3 h-3" /> Protected by Content Locker
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <AnimatePresence mode="wait">
           {!isVerified ? (
             <AgeGate 
