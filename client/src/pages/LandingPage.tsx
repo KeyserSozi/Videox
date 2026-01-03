@@ -187,30 +187,6 @@ function AgeGate({ onVerify, handleCtaClick, isVerified }: { onVerify: () => voi
       transition={{ duration: 0.5 }}
       className="w-full max-w-lg space-y-6"
     >
-      {/* New Top Front Banner */}
-      <motion.div 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="glass-panel p-4 rounded-xl border-primary/30 flex items-center justify-between gap-4"
-      >
-        <div className="flex items-center gap-3">
-          <div className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-          </div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-white">
-            Live Stream Available
-          </p>
-        </div>
-        <button 
-          onClick={handleCtaClick}
-          className="px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase rounded hover:bg-red-700 transition-all"
-        >
-          Watch Now
-        </button>
-      </motion.div>
-
       <div className="glass-panel p-1 rounded-2xl border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.2)]">
         <div className="bg-card/80 backdrop-blur-md rounded-xl p-8 md:p-12 text-center relative overflow-hidden">
           {/* Decorative Elements */}
