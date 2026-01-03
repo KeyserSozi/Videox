@@ -52,7 +52,7 @@ export default function LandingPage() {
               
               <div className="space-y-4">
                 <button 
-                  onClick={() => window.location.href = "#"} // Your CPA link here
+                  onClick={() => window.location.href = "https://smrturl.co/a/s0da26c5f32/86?s1="}
                   className="w-full py-4 bg-primary hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all hover:scale-105"
                 >
                   إكمال التحقق الآن
