@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight } from "lucide-react";
+import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight, ShieldAlert, ArrowRight } from "lucide-react";
 import backgroundTexture from "@assets/generated_images/dark_luxury_background_with_crimson_and_gold_accents.png";
 import teaserImage from "@assets/oardefault_1767335880089.jpg";
 
@@ -111,24 +111,30 @@ export default function LandingPage() {
                 <Lock className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
                 
                 <h2 className="text-3xl font-display font-bold text-white mb-4 uppercase tracking-tighter">
-                  Content Locked
+                  🔒 Private Content
                 </h2>
                 
                 <p className="text-gray-400 mb-8 leading-relaxed">
-                  To watch the full video, you must complete human verification first. This will only take a minute.
+                  This content is private and restricted.<br />
+                  Confirm you’re human to continue.<br />
+                  It only takes a few seconds.
                 </p>
                 
                 <div className="space-y-4">
                   <button 
                     onClick={handleCompleteLocker}
-                    className="w-full py-4 bg-primary hover:bg-red-700 text-white font-bold text-lg rounded-xl transition-all hover:scale-105"
+                    className="w-full py-4 bg-primary hover:bg-red-700 text-white font-black text-xl tracking-widest rounded-xl transition-all hover:scale-105 uppercase"
                   >
-                    Complete Verification Now
+                    UNLOCK NOW
                   </button>
+                  
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                    ✔ Fast • ✔ Secure • ✔ No signup required
+                  </p>
                   
                   <button 
                     onClick={() => setIsLocked(false)}
-                    className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                    className="text-xs text-gray-600 hover:text-gray-400 transition-colors uppercase tracking-widest pt-4"
                   >
                     Cancel
                   </button>
@@ -200,39 +206,43 @@ function AgeGate({ onVerify, handleCtaClick, isVerified }: { onVerify: () => voi
             className="flex justify-center mb-6"
           >
             <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/50 flex items-center justify-center shadow-[0_0_15px_rgba(139,0,0,0.4)]">
-              <Lock className="w-8 h-8 text-primary" />
+              <ShieldAlert className="w-8 h-8 text-primary" />
             </div>
           </motion.div>
 
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-2 tracking-wide uppercase text-glow-red">
+          <h2 className="text-3xl md:text-4xl font-display font-black text-white mb-2 uppercase tracking-tighter">
             Adult Content Only (+18)
-          </h1>
+          </h2>
           
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <span className="h-px w-8 bg-primary/50" />
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Original & Exclusive Content</span>
-            <span className="h-px w-8 bg-primary/50" />
-          </div>
-
-          <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-            You are about to enter the official platform for exclusive content. <br /> 
-            <span className="text-white font-semibold italic">Watch original versions in high quality directly.</span>
+          <p className="text-secondary font-bold text-xs uppercase tracking-[0.2em] mb-6">
+            Original & Exclusive Content
           </p>
 
-          <motion.button
-            whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(139, 0, 0, 0.6)" }}
-            whileTap={{ scale: 0.98 }}
-            onClick={onVerify}
-            data-testid="button-verify"
-            className="w-full py-5 px-6 bg-gradient-to-r from-primary to-red-600 text-white font-extrabold text-xl uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(139,0,0,0.4)] flex items-center justify-center gap-2 group relative overflow-hidden"
-          >
-            <span className="relative z-10">Confirm I am 18+ | Enter</span>
-            <ChevronRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          <p className="text-gray-400 text-sm md:text-base mb-8 leading-relaxed max-w-sm mx-auto">
+            You are about to enter the official platform for exclusive content. Watch original versions in high quality directly.
+          </p>
 
-          <div className="mt-6 flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-primary" /> Secure & Private Access</span>
-            <span className="flex items-center gap-1">🔞 Adult Content</span>
+          <div className="space-y-4">
+            <motion.button
+              whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(139, 0, 0, 0.6)" }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onVerify}
+              data-testid="button-verify"
+              className="w-full py-5 px-6 bg-gradient-to-r from-primary to-red-600 text-white font-extrabold text-xl uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(139,0,0,0.4)] flex items-center justify-center gap-2 group relative overflow-hidden"
+            >
+              <span className="relative z-10">Confirm I am 18+ | Enter</span>
+              <ChevronRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+            
+            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+              <Lock className="w-3 h-3" /> Secure & Private Access
+            </p>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-center gap-6 opacity-40 grayscale">
+            <div className="text-[10px] font-black tracking-tighter flex items-center gap-1">
+              🔞 Adult Content
+            </div>
           </div>
         </div>
       </div>
