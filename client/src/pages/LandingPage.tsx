@@ -175,6 +175,8 @@ export default function LandingPage() {
               show={showContent} 
               handleCtaClick={handleCtaClick} 
               isVideoUnlocked={isVideoUnlocked} 
+              activeVideoId={activeVideoId}
+              handleVideoThumbClick={handleVideoThumbClick}
             />
           ) : null}
         </AnimatePresence>
@@ -263,7 +265,7 @@ function AgeGate({ onVerify, handleCtaClick, isVerified }: { onVerify: () => voi
   );
 }
 
-function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: boolean, handleCtaClick: () => void, isVideoUnlocked: boolean }) {
+function RestrictedContent({ show, handleCtaClick, isVideoUnlocked, activeVideoId, handleVideoThumbClick }: { show: boolean, handleCtaClick: () => void, isVideoUnlocked: boolean, activeVideoId: number | null, handleVideoThumbClick: (id: number) => void }) {
   if (!show) return null;
 
   return (
@@ -313,7 +315,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
             ) : (
               [
                 { id: 1, title: "Exclusive Archive #01", views: "1.2M", dur: "12:04" },
-                { id: 2, title: "Premium Access #02", views: "850K", dur: "08:15" },
+                { id: 2, title: "Exclusive Archive #02", views: "850K", dur: "08:15" },
                 { id: 3, title: "Vault Collection #03", views: "2.1M", dur: "15:30" },
                 { id: 4, title: "Special Edit #04", views: "940K", dur: "10:45" },
                 { id: 5, title: "Unseen Footage #05", views: "1.5M", dur: "06:20" },
