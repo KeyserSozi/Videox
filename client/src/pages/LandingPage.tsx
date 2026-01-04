@@ -303,7 +303,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked, activeVideoI
                 className="col-span-full aspect-video max-w-2xl mx-auto w-full bg-black rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.3)]"
               >
                   <iframe 
-                    src={activeVideoId === 2 ? "https://www.xvv1deos.com/embedframe/hbeackf9b24" : "https://www.xvv1deos.com/embedframe/hbeackf9b24"} 
+                    src={activeVideoId === 2 ? "https://www.xvv1deos.com/embedframe/hbeackf9b24" : "https://www.xvideos.com/embedframe/uekvivf63b3"} 
                     frameBorder="0" 
                     width="510" 
                     height="400" 
