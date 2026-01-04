@@ -271,113 +271,59 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
             Access Granted
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 text-glow-red">
-            Original & Exclusive Content
+          <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-2 text-glow-red uppercase tracking-tight">
+            Trending <span className="text-primary">Vault</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-            Watch all original videos available now. <br />
-            <span className="text-primary font-medium italic underline decoration-primary/30">Direct and instant access to the latest exclusive clips.</span>
+          <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto font-medium">
+            Discover the most viewed exclusive archives from the last 24 hours.
           </p>
         </motion.div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        {/* Teaser Visual or Video Embed */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="relative group cursor-pointer"
-        >
-          {isVideoUnlocked ? (
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-black flex items-center justify-center">
-              <iframe 
-                src="https://www.xvideos.com/embedframe/uekvivf63b3"
-                frameBorder="0"
-                width="100%"
-                height="100%"
-                scrolling="no"
-                allowFullScreen>
-              </iframe>
-            </div>
-          ) : (
-            <>
-              <div className="absolute -inset-1 bg-gradient-to-br from-primary via-transparent to-secondary opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-500" />
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-                 <img 
-                  src={teaserImage} 
-                  alt="Exclusive Content" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                
-                {/* Overlay UI */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-                  <div className="flex justify-between items-end">
-                    <div>
-                      <h3 className="text-2xl font-display text-white mb-1">Vidéo N°1</h3>
-                      <p className="text-sm text-gray-400">Duration: 12:04 • Status: <span className="text-green-400">Unlocked</span></p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+            {[
+              { id: 1, title: "Exclusive Archive #01", views: "1.2M", dur: "12:04" },
+              { id: 2, title: "Premium Access #02", views: "850K", dur: "08:15" },
+              { id: 3, title: "Vault Collection #03", views: "2.1M", dur: "15:30" },
+              { id: 4, title: "Special Edit #04", views: "940K", dur: "10:45" },
+              { id: 5, title: "Unseen Footage #05", views: "1.5M", dur: "06:20" },
+              { id: 6, title: "Final Cut #06", views: "3.2M", dur: "14:10" }
+            ].map((video) => (
+              <motion.div
+                key={video.id}
+                whileHover={{ y: -5 }}
+                onClick={handleCtaClick}
+                className="group cursor-pointer"
+              >
+                <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
+                  <img 
+                    src={`https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
+                    alt={video.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[10px] font-bold text-white rounded">
+                    {video.dur}
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
+                      <ChevronRight className="w-6 h-6 text-white" />
                     </div>
-                    <button className="w-12 h-12 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:bg-primary transition-colors">
-                       <Eye className="w-6 h-6 text-white" />
-                    </button>
                   </div>
                 </div>
-
-                {/* "Live" Badge */}
-                <div className="absolute top-4 left-4 px-2 py-1 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider rounded flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                  Live Feed
+                <div className="mt-2 px-1">
+                  <h4 className="text-xs md:text-sm font-bold text-gray-200 line-clamp-1 group-hover:text-primary transition-colors">
+                    {video.title}
+                  </h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-[10px] text-gray-500 font-medium">{video.views} views</span>
+                    <span className="w-1 h-1 rounded-full bg-gray-700" />
+                    <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">Premium</span>
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
-        </motion.div>
-
-        {/* Call to Action Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="space-y-8 text-center md:text-left"
-        >
-          <div>
-            <h3 className="text-2xl font-display text-primary mb-2">100% Original Versions</h3>
-            <p className="text-gray-400 leading-relaxed">
-              Here you find the original source of all exclusive videos. We provide you with a direct viewing experience in the highest available quality with a guarantee of complete confidentiality.
-            </p>
+              </motion.div>
+            ))}
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
-             <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg text-center">
-                <p className="text-primary font-bold text-xl">HD</p>
-                <p className="text-[10px] text-gray-500 uppercase font-bold">High Quality</p>
-             </div>
-             <div className="p-4 bg-white/5 border border-white/10 rounded-lg text-center">
-                <p className="text-white font-bold text-xl">Private</p>
-                <p className="text-[10px] text-gray-500 uppercase font-bold">Incognito Browsing</p>
-             </div>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <button 
-              onClick={handleCtaClick}
-              className="w-full py-5 bg-primary hover:bg-red-700 text-white font-black text-xl uppercase tracking-widest rounded-xl shadow-[0_10px_40px_rgba(139,0,0,0.6)] transition-all hover:scale-[1.03] active:scale-95 animate-pulse-glow"
-              data-testid="button-cta-primary"
-            >
-              Watch Video
-            </button>
-          </div>
-          
-          <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-gray-500">
-             <div className="flex -space-x-2">
-               {[1,2,3].map(i => (
-                 <div key={i} className="w-8 h-8 rounded-full border-2 border-black bg-gray-800" />
-               ))}
-             </div>
-             <span>62,431 users active now</span>
-          </div>
-        </motion.div>
-      </div>
     </motion.div>
   );
 }
