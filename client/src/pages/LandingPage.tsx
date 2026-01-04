@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight, ShieldAlert, ArrowRight } from "lucide-react";
 import backgroundTexture from "@assets/generated_images/dark_luxury_background_with_crimson_and_gold_accents.png";
-import teaserImage from "@assets/oardefault_1767335880089.jpg";
+import teaserImage from "@assets/oardefault_1767549876983.jpg";
 
 export default function LandingPage() {
   const [isVerified, setIsVerified] = useState(false);
@@ -318,11 +318,11 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
                   className="group cursor-pointer"
                 >
                   <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
-                    <img 
-                      src={`https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
-                      alt={video.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
-                    />
+                  <img 
+                    src={video.id === 1 ? teaserImage : `https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
+                    alt={video.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                  />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[10px] font-bold text-white rounded">
                       {video.dur}
