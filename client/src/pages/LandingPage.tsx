@@ -35,9 +35,15 @@ export default function LandingPage() {
   const handleCompleteLocker = () => {
     // Open the CPA link in a new tab
     window.open("https://smrturl.co/ffcfb4d", "_blank");
-    // Simulate that the locker is completed and show the video
+    // Unlock the video player
     setIsLocked(false);
     setIsVideoUnlocked(true);
+    
+    // Scroll to video player after a short delay
+    setTimeout(() => {
+      const element = document.getElementById('video-player-section');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 500);
   };
 
   return (
@@ -280,49 +286,66 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
         </motion.div>
       </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-            {[
-              { id: 1, title: "Exclusive Archive #01", views: "1.2M", dur: "12:04" },
-              { id: 2, title: "Premium Access #02", views: "850K", dur: "08:15" },
-              { id: 3, title: "Vault Collection #03", views: "2.1M", dur: "15:30" },
-              { id: 4, title: "Special Edit #04", views: "940K", dur: "10:45" },
-              { id: 5, title: "Unseen Footage #05", views: "1.5M", dur: "06:20" },
-              { id: 6, title: "Final Cut #06", views: "3.2M", dur: "14:10" }
-            ].map((video) => (
-              <motion.div
-                key={video.id}
-                whileHover={{ y: -5 }}
-                onClick={handleCtaClick}
-                className="group cursor-pointer"
+          <div id="video-player-section" className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+            {isVideoUnlocked ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="col-span-full aspect-video max-w-2xl mx-auto w-full bg-black rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.3)]"
               >
-                <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
-                  <img 
-                    src={`https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
-                    alt={video.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[10px] font-bold text-white rounded">
-                    {video.dur}
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
-                      <ChevronRight className="w-6 h-6 text-white" />
+                <iframe 
+                  src="https://www.xvideos.com/embedframe/uekvivf63b3" 
+                  frameBorder="0" 
+                  width="100%" 
+                  height="100%" 
+                  scrolling="no" 
+                  allowFullScreen
+                ></iframe>
+              </motion.div>
+            ) : (
+              [
+                { id: 1, title: "Exclusive Archive #01", views: "1.2M", dur: "12:04" },
+                { id: 2, title: "Premium Access #02", views: "850K", dur: "08:15" },
+                { id: 3, title: "Vault Collection #03", views: "2.1M", dur: "15:30" },
+                { id: 4, title: "Special Edit #04", views: "940K", dur: "10:45" },
+                { id: 5, title: "Unseen Footage #05", views: "1.5M", dur: "06:20" },
+                { id: 6, title: "Final Cut #06", views: "3.2M", dur: "14:10" }
+              ].map((video) => (
+                <motion.div
+                  key={video.id}
+                  whileHover={{ y: -5 }}
+                  onClick={handleCtaClick}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
+                    <img 
+                      src={`https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
+                      alt={video.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 backdrop-blur text-[10px] font-bold text-white rounded">
+                      {video.dur}
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
+                        <ChevronRight className="w-6 h-6 text-white" />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="mt-2 px-1">
-                  <h4 className="text-xs md:text-sm font-bold text-gray-200 line-clamp-1 group-hover:text-primary transition-colors">
-                    {video.title}
-                  </h4>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-[10px] text-gray-500 font-medium">{video.views} views</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-700" />
-                    <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">Premium</span>
+                  <div className="mt-2 px-1">
+                    <h4 className="text-xs md:text-sm font-bold text-gray-200 line-clamp-1 group-hover:text-primary transition-colors">
+                      {video.title}
+                    </h4>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-[10px] text-gray-500 font-medium">{video.views} views</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-700" />
+                      <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">Premium</span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))
+            )}
           </div>
     </motion.div>
   );
