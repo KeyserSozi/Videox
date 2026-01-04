@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight, ShieldAlert, ArrowRight } from "lucide-react";
 import backgroundTexture from "@assets/generated_images/dark_luxury_background_with_crimson_and_gold_accents.png";
 import teaserImage from "@assets/oardefault_1767549960868.jpg";
+import teaserImage2 from "@assets/stock_images/dark_cinematic_high__f0bc7180.jpg";
 
 export default function LandingPage() {
   const [isVerified, setIsVerified] = useState(false);
@@ -329,7 +330,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked, activeVideoI
                 >
                   <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
                   <img 
-                    src={video.id === 1 ? teaserImage : `https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
+                    src={video.id === 1 ? teaserImage : video.id === 2 ? teaserImage2 : `https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400&h=225&sig=${video.id}`} 
                     alt={video.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
                   />
