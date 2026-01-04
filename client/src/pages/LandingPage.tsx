@@ -293,14 +293,15 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
                 animate={{ opacity: 1, scale: 1 }}
                 className="col-span-full aspect-video max-w-2xl mx-auto w-full bg-black rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.3)]"
               >
-                <iframe 
-                  src="https://www.xvideos.com/embedframe/uekvivf63b3" 
-                  frameBorder="0" 
-                  width="100%" 
-                  height="100%" 
-                  scrolling="no" 
-                  allowFullScreen
-                ></iframe>
+                  <iframe 
+                    src="https://www.xvideos.com/embedframe/uekvivf63b3" 
+                    frameBorder="0" 
+                    width="510" 
+                    height="400" 
+                    scrolling="no" 
+                    allowFullScreen
+                    className="max-w-full"
+                  ></iframe>
               </motion.div>
             ) : (
               [
