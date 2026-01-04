@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight, ShieldAlert, ArrowRight } from "lucide-react";
 import backgroundTexture from "@assets/generated_images/dark_luxury_background_with_crimson_and_gold_accents.png";
-import teaserImage from "@assets/oardefault_1767549876983.jpg";
+import teaserImage from "@assets/oardefault_1767549960868.jpg";
 
 export default function LandingPage() {
   const [isVerified, setIsVerified] = useState(false);
