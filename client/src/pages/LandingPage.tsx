@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Lock, Shield, Eye, FileWarning, Fingerprint, ChevronRight, ShieldAlert, ArrowRight } from "lucide-react";
 import backgroundTexture from "@assets/generated_images/dark_luxury_background_with_crimson_and_gold_accents.png";
 import teaserImage from "@assets/oardefault_1767549960868.jpg";
-import teaserImage2 from "@assets/stock_images/dark_cinematic_high__f0bc7180.jpg";
+import teaserImage2 from "@assets/maxresdefault_1767551504422.jpg";
 
 export default function LandingPage() {
   const [isVerified, setIsVerified] = useState(false);
