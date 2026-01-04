@@ -304,7 +304,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked, activeVideoI
                 className="col-span-full aspect-video max-w-2xl mx-auto w-full bg-black rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.3)]"
               >
                   <iframe 
-                    src={activeVideoId === 2 ? "https://www.xvv1deos.com/embedframe/hbeackf9b24" : "https://www.xvideos.com/embedframe/uekvivf63b3"} 
+                    src={activeVideoId === 2 ? "https://www.xvv1deos.com/embedframe/hbeackf9b24" : activeVideoId === 3 ? "https://www.xvideos.com/embedframe/okptvtod9bd" : "https://www.xvideos.com/embedframe/uekvivf63b3"} 
                     frameBorder="0" 
                     width="510" 
                     height="400" 
@@ -317,7 +317,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked, activeVideoI
               [
                 { id: 1, title: "Exclusive Archive #01", views: "1.2M", dur: "12:04" },
                 { id: 2, title: "Exclusive Archive #02", views: "850K", dur: "08:15" },
-                { id: 3, title: "Vault Collection #03", views: "2.1M", dur: "15:30" },
+                { id: 3, title: "Exclusive Archive #03", views: "2.1M", dur: "15:30" },
                 { id: 4, title: "Special Edit #04", views: "940K", dur: "10:45" },
                 { id: 5, title: "Unseen Footage #05", views: "1.5M", dur: "06:20" },
                 { id: 6, title: "Final Cut #06", views: "3.2M", dur: "14:10" }
