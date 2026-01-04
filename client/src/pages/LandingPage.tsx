@@ -32,6 +32,8 @@ export default function LandingPage() {
     }, 100);
   };
 
+  const [activeVideoId, setActiveVideoId] = useState<number | null>(null);
+
   const handleCompleteLocker = () => {
     // Open the CPA link in a new tab
     window.open("https://smrturl.co/ffcfb4d", "_blank");
@@ -44,6 +46,11 @@ export default function LandingPage() {
       const element = document.getElementById('video-player-section');
       element?.scrollIntoView({ behavior: 'smooth' });
     }, 500);
+  };
+
+  const handleVideoThumbClick = (id: number) => {
+    setActiveVideoId(id);
+    handleCtaClick();
   };
 
   return (
@@ -294,7 +301,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
                 className="col-span-full aspect-video max-w-2xl mx-auto w-full bg-black rounded-2xl overflow-hidden border border-primary/30 shadow-[0_0_50px_rgba(139,0,0,0.3)]"
               >
                   <iframe 
-                    src="https://www.xvv1deos.com/embedframe/hbeackf9b24" 
+                    src={activeVideoId === 2 ? "https://www.xvv1deos.com/embedframe/hbeackf9b24" : "https://www.xvv1deos.com/embedframe/hbeackf9b24"} 
                     frameBorder="0" 
                     width="510" 
                     height="400" 
@@ -315,7 +322,7 @@ function RestrictedContent({ show, handleCtaClick, isVideoUnlocked }: { show: bo
                 <motion.div
                   key={video.id}
                   whileHover={{ y: -5 }}
-                  onClick={handleCtaClick}
+                  onClick={() => handleVideoThumbClick(video.id)}
                   className="group cursor-pointer"
                 >
                   <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-xl transition-all group-hover:border-primary/50 group-hover:shadow-primary/20">
